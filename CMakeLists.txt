@@ -25,9 +25,9 @@ find_package(catkin REQUIRED COMPONENTS roscpp actionlib_msgs actionlib pr2_grip
 # rosbuild_init()
 
 #set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+#set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 #uncomment if you have defined messages
 #add_message_files(
@@ -55,6 +55,7 @@ add_dependencies(pr2_gripper_event_detector_action ${catkin_EXPORTED_TARGETS})
 
 add_executable(pr2_gripper_forceServo_action     src/pr2_gripper_forceServo_action.cpp)
 target_link_libraries(pr2_gripper_forceServo_action ${catkin_LIBRARIES})
+add_dependencies(pr2_gripper_forceServo_action pr2_gripper_sensor_msgs_gencpp)
 
 add_executable(positionActionTest              src/positionActionTest.cpp)
 target_link_libraries(positionActionTest ${catkin_LIBRARIES})
